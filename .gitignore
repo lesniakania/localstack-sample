@@ -1,0 +1,20 @@
+*.js
+*.d.ts
+node_modules
+.DS_Store
+.pnpm-debug.log
+
+# CDK asset staging directory
+cdk.out
+
+dist/
+
+.vscode/
+# VSCode localhistory plugin
+.history/
+# IntelliJ
+.idea
+*.iml
+!overrides-mui.d.ts
+TODO
+volume

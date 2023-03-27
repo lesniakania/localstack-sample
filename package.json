@@ -1,0 +1,23 @@
+{
+  "name": "localstack-sample",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "setupall": "pnpm install && pnpm synth && pnpm bootstrap && pnpm deploy-core && source ./create_user.sh",
+    "build": "tsc",
+    "bootstrap": "env CDK_DEFAULT_ACCOUNT=000000000000 CDK_NEW_BOOTSTRAP=1 cdklocal bootstrap --verbose --debug aws://000000000000/eu-central-1",
+    "synth": "rm -rf ./cdk.out && pnpm run build && cdklocal synth -q",
+    "deploy-core": "AWS_REGION=eu-central-1 cdklocal deploy AppStack",
+    "app": "node ./dist/App.js"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^6.2.0",
+    "aws-cdk-lib": "2.53.0",
+    "aws-sdk": "*",
+    "constructs": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "typescript": "*"
+  }
+}
